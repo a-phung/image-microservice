@@ -55,7 +55,7 @@ def gifguessr():
     # Convert the word set to a list for shuffling/randomization
     words_list = list(words_set)
     random.shuffle(words_list)
-    word_dict = {"image": image_url, "word1": words_list[0], "word2": words_list[1], "word3": words_list[2]}
+    word_dict = {"image": image_url, "words": [words_list[0], words_list[1], words_list[2]]}
     # Return as json
     return json.dumps(word_dict)
 
