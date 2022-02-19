@@ -7,6 +7,9 @@ import nltk
 
 app = Flask(__name__)
 
+# Required for nltk
+nltk.download('punkt')
+
 
 @app.route("/")
 def home():
