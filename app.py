@@ -14,7 +14,8 @@ nltk.download('averaged_perceptron_tagger')
 
 @app.route("/")
 def home():
-    return """<p>Use '/image' path to get a random alpaca image url.</p>
+    return """<p>Use '/background' path to get a random alpaca image url.</p>
+              <p>Use '/image' path to get a random alpaca image url.</p>
               <p>Use '/gifguessr' path to get a random 'travel' or 'interior' image url along with 3 relevant words related to the image.</p>"""
 
 
@@ -62,6 +63,18 @@ def gifguessr():
     word_dict = {"image": image_url, "words": [words_list[0], words_list[1], words_list[2]]}
     # Return as json
     return json.dumps(word_dict)
+
+
+@app.route("/background")
+def background():
+    """API route handler for teammate's main app."""
+    # Send a GET request to the api endpoint to get a random image url
+    access_key = os.environ.get("ACCESS_KEY")
+    res = requests.get(
+        "https://api.unsplash.com/photos/random?query=nature&client_id=" + access_key)
+    image_json = res.json()
+    image_url = image_json["urls"]["regular"]
+    return image_url
 
 
 if __name__ == "__main__":
