@@ -14,7 +14,7 @@ nltk.download('averaged_perceptron_tagger')
 
 @app.route("/")
 def home():
-    return """<p>Use '/background' path to get a random alpaca image url.</p>
+    return """<p>Use '/background' path to get a random nature image url.</p>
               <p>Use '/image' path to get a random alpaca image url.</p>
               <p>Use '/gifguessr' path to get a random 'travel' or 'interior' image url along with 3 relevant words related to the image.</p>"""
 
