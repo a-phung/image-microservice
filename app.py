@@ -71,7 +71,7 @@ def background():
     # Send a GET request to the api endpoint to get a random image url
     access_key = os.environ.get("ACCESS_KEY")
     res = requests.get(
-        "https://api.unsplash.com/photos/random?query=nature&client_id=" + access_key)
+        "https://api.unsplash.com/photos/random?query=nature&orientation=landscape&client_id=" + access_key)
     image_json = res.json()
     image_url = image_json["urls"]["regular"]
     return image_url
