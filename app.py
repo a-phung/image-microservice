@@ -51,7 +51,7 @@ def gifguessr():
         for each_json in image_jsons:
             image_dict = dict()
             # Store image url in the dictionary
-            image_dict["image_urls"] = each_json["urls"]["small"]
+            image_dict["image"] = each_json["urls"]["small"]
             # Parse text with nltk to get the relevant words from the image
             words_set = set()
             img_desc = each_json["alt_description"]  # Store description of image in a variable
@@ -68,7 +68,9 @@ def gifguessr():
             # Check if words list contains at least 3 words
             if word_count >= 3:
                 random.shuffle(words_list)
+                # Store words in dictionary
                 image_dict["words"] = [words_list[0], words_list[1], words_list[2]]
+                # Add relevant credits in dictionary
                 image_dict["name"] = each_json["user"]["name"]
                 image_dict["username"] = each_json["user"]["username"]
                 # Return as json
