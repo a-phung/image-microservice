@@ -1,2 +1,2 @@
 # image-microservice
-Image microservice implemented with HTTP request/response.
+Created for use by other teammates and for the main application, gifGuessr (https://github.com/a-phung/gifguessr).
